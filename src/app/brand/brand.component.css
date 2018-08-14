@@ -1,0 +1,16 @@
+/* brand  */
+.nf4-brand{
+    font-size:2em;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+  }
+  /* logo  */
+  .nf4-brand__logo{
+    color: #0078d7;
+  }
+  /* logo后面的“NF4 园丁助手” */
+  .nf4-brand__font{
+    font-size:26px;
+    margin-left:5px;
+  }

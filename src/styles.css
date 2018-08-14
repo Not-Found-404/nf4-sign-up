@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+body{
+    /* 设置背景 */
+    background-position: top left;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-image: url(http://www.qtu404.com/angular/assert/image/icon/bgImg_0.jpg);
+}
