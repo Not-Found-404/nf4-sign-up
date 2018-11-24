@@ -20,6 +20,11 @@ export class SignUpComponent implements OnInit {
 
   validateForm: FormGroup;
   okPhoneNumber: Boolean = true;
+  smsIsOnLoading = false;
+  buttonValue: string;
+  timeout = 60;
+  interval = setInterval(function () {
+  }, 0);
 
   createMessage(type: string): void {
     if (type === 'success') {
@@ -64,6 +69,18 @@ export class SignUpComponent implements OnInit {
 
   // 得到验证码
   getCaptcha(phoneNumber: String): void {
+    this.smsIsOnLoading = true;
+    this.interval = setInterval(() => {
+      this.buttonValue = this.timeout + '秒后重试';
+      this.timeout -= 1;
+      if (this.timeout <= 0) {
+        clearInterval(this.interval);
+        this.timeout = 60;
+        this.buttonValue = '获取验证码';
+        this.smsIsOnLoading = false;
+      }
+    }, 1000);
+
     this.userService.sendVerifyCode(phoneNumber).subscribe();
   }
 
@@ -94,6 +111,8 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.smsIsOnLoading = false;
+    this.buttonValue = '获取验证码';
     this.validateForm = this.fb.group({
       password: [null, [Validators.required]],
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
