@@ -17,7 +17,7 @@ import {debounceTime} from 'rxjs/operators';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-
+  prefix = 'api/';
   validateForm: FormGroup;
   okPhoneNumber: Boolean = true;
   smsIsOnLoading = false;
@@ -52,7 +52,7 @@ export class SignUpComponent implements OnInit {
     } else if (control.value !== this.validateForm.controls.password.value) {
       return {confirm: true, error: true};
     }
-  }
+  };
 
   // 验证手机号是否用过
   exitPhoneNum(phoneNumber: String): void {
@@ -97,7 +97,7 @@ export class SignUpComponent implements OnInit {
       } else {
         // this.message.create('success', `注册成功`);
         alert('注册成功');
-        window.open('toHomePage', '_self');
+        window.open(this.prefix + 'toHomePage', '_self');
       }
     });
 
@@ -122,5 +122,9 @@ export class SignUpComponent implements OnInit {
       captcha: [null, [Validators.required]],
       // agree: [false , [Validators.required]],
     });
+  }
+
+  toHomePage() {
+    window.open(this.prefix + 'toHomePage', '_self');
   }
 }

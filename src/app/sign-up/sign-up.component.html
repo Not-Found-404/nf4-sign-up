@@ -105,7 +105,7 @@
                     (click)="toSignIn(phoneNumber.value,password.value,username.value,verifyCode.value)">注册
             </button>
             已有账号，
-            <a href="toHomePage">立即登录!</a>
+            <a (click)="toHomePage()">立即登录!</a>
           </nz-form-control>
         </nz-form-item>
       </form>

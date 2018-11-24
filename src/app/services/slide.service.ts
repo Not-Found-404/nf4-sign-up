@@ -52,6 +52,6 @@ export class SlideService {
    * @param {HttpClient} http
    */
   constructor(private http: HttpClient) {
-    this.folderUrl = 'slide/';
+    this.folderUrl = 'api/slide/';
   }
 }
