@@ -17,7 +17,7 @@ import {debounceTime} from 'rxjs/operators';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  prefix = 'api/';
+  prefix = '';
   validateForm: FormGroup;
   okPhoneNumber: Boolean = true;
   smsIsOnLoading = false;
@@ -97,7 +97,7 @@ export class SignUpComponent implements OnInit {
       } else {
         // this.message.create('success', `注册成功`);
         alert('注册成功');
-        window.open(this.prefix + 'toHomePage', '_self');
+        window.open(this.prefix + 'home.html', '_self');
       }
     });
 
@@ -125,6 +125,6 @@ export class SignUpComponent implements OnInit {
   }
 
   toHomePage() {
-    window.open(this.prefix + 'toHomePage', '_self');
+    window.open(this.prefix + 'home.html', '_self');
   }
 }
